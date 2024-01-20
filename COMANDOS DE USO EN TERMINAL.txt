@@ -1,0 +1,57 @@
+COMANDOS DE USO EN TERMINAL
+
+PowerShell			
+Entorno de linea de comandos basado en objetos
+> cd <ruta> 					(Change Directory): Cambia el directorio actual.
+> ls 						(List System): Lista los archivos y carpetas en el directorio actual.
+> cp <origen> <destino>				(copy): Copia archivo o directorio
+> mv <origen> <destino>				(move): Mueve archivo o directorio
+> rm <nombre_archivo> 				(remove): Elimina archivo o directorio
+> mkdir <nombre_directorio>			(make directory): Crea un nuevo directorio
+> cls						(clear): Limpia la pantalla de la terminal
+> hostname					Muestra el nombre del host del sistema
+> ipconfig					Muestra la configuracion de la red
+> ping <direccion_ip>				Envía paquetes de prueba a una dirección IP para verificar conectividad
+> echo $env:USERNAME				Muestra el nombre del usuario
+> tree <directorio>				Muestra el arbol del directorio
+> Get-Command					Obtiene todos los comandos disponibles en PowerShell
+
+Pip				
+Python Package Index - PyPI: Sistema de gestion de paquetes de python
+> pip install <nombre_del_paquete>		Instalar un paquete
+> pip uninstall <nombre_del_paquete>		Desinstalar un paquete
+> pip show <nombre_del_paquete>			Mostrar información sobre un paquete instalado
+> pip list					Listar todos los paquetes instalados
+> pip install --upgrade <nombre_paquete>	Actualizar un paquete a la última versión
+> pip search <término_de_búsqueda>		Buscar paquetes
+> pip freeze > requirements.txt			Crear un archivo de requisitos (requirements.txt)
+> pip install -r requirements.txt		Instalar paquetes desde un archivo de requisitos
+> pip show -f <nombre_del_paquete>		Mostrar la ubicación de un paquete instalado
+> pip list --outdated				Listar los paquetes obsoletos
+
+Python
+Ejecución de archivos '.py'
+> python <nombre_script.py>			Ejecuta un script de python
+Entorno virtual
+> virtualenv <nombre_del_entorno>		OP1 Crear un entorno virtual
+> python -m venv <nombre_del_entorno_virtual>	OP2 Crear un entorno virtual
+> .\<nombre_entorno_virtual>\Scripts\activate 	Activar un entorno virtual en Windows
+> deactivate					Desactivar un entorno virtual
+
+Git
+> git init					Inicia un nuevo repositorio de Git
+> git status					Agrega cambios al área de preparación
+> git add <archivo_o_directorio>		Agrega cambios al área de preparación
+> git commit -m "Mensaje del commit"		Registra los cambios en el repositorio
+> git log --all --oneline			Muestra el historial de commits --todos los commit --visualización en una sola línea
+> git clone <url_del_repositorio>		Clona un repositorio existente en un nuevo directorio
+> git pull origin <rama>			Obtiene cambios desde un repositorio remoto y los fusiona en el repositorio local
+> git push origin <rama>			Sube los cambios locales a un repositorio remoto		
+> git branch					Lista las ramas en el repositorio
+> git checkout <nombre_de_rama>			Cambia de rama o restaura archivos
+> git merge <rama_a_fusionar>			Fusiona una rama en la rama actual
+> git remote -v					Muestra los repositorios remotos configurados
+> git fetch origin				Obtiene los cambios del repositorio remoto sin fusionarlos
+> git diff					Muestra las diferencias entre cambios en el área de preparación y el directorio de trabajo
+> git reset --hard				Deshace cambios locales
+> git tag -a <nombre_etiq> -m "Mensaje Etiq"	Crea, lista o borra etiquetas

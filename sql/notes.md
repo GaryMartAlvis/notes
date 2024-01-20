@@ -5,10 +5,10 @@
 * WHERE CONVERT(DATE, fecha, 101) = '01-17-2024'
 ### Formato de numero
 * SELECT FORMAT(SUM(TotalCartera), 'N', 'en-US') AS MONTO
-  > 16,153,155.56
+* SELECT IFNULL(mora, 0) AS MORA
 
 ---
-### Emplemplos de querys
+### Querys referenciales
 <details>
   <summary>WITH CTE | CASE | FORMAT</summary>
     <code>WITH EstadoCTE AS (

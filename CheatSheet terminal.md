@@ -85,6 +85,11 @@
 | git reset --hard                           | Deshace cambios locales                                                                    |
 | git tag -a <nombre_etiq> -m "Mensaje Etiq" | Crea, lista o borra etiquetas                                                              |
 
+
+
+<details>
+<summary>Creación y conexión de repositorio con GitHub</summary>
+
 > Conexion con repositorio de GitHub
 ```
 # Or create a new repository on the command line
@@ -120,4 +125,79 @@ git config --global --list
     > git config --global core.editor "notepad"</>
 ```
 
+</details>
+
+<details>
+<summary>Pull request</summary>
+
+Pasos para realizar un pull request
+***
+**Step 1: Hacer Fork del repositorio original**
+
+Hacer un fork en GitHub significa crear una copia personal de un repositorio ajeno en tu propia cuenta de GitHub. Esto te permite trabajar en el proyecto sin afectar el repositorio original. La copia (fork) está vinculada al repositorio original, lo que facilita la colaboración y la contribución a proyectos de código abierto o a proyectos de otras personas.
+- Ingresa a GitHub
+- Encuentra el repositorio
+- Abre el repositorio
+- Hacer Fork:En la esquina superior derecha de la página del repositorio, encontrarás el botón "Fork". Haz clic en él.
+- Elige la cuenta: Selecciona tu cuenta como destino para el fork. Esto creará una copia del repositorio en tu propia cuenta.
+- Espera a que se complete: GitHub creará una copia del repositorio en tu cuenta. Esto puede tardar un momento, dependiendo del tamaño del repositorio.
+
+****
+**Step 2: Clona el repositorio en tu equipo**
+~~~ 
+git clone [URL_repositorio_original] 
+~~~
+
+***
+**Step 3: Crea un rama para los trabajar en ella en los cambios del** 
+~~~
+git checkout -b nombre-de-tu-rama
+~~~
+
+***
+**Step 4: Realizar cambios locales**
+
+Realiza los cambios que desees en tu rama local. Puedes agregar, modificar o eliminar archivos según sea necesario.
+
+***
+**Step 5: Hacer commit de los cambios**
+
+~~~~
+git add .
+git commit -m "Mensaje descriptivo de tus cambios"
+~~~~
+
+***
+**Step 6: Subir cambios a tu repositorio Forked**
+
+~~~
+git push origin nombre-de-tu-rama
+~~~
+
+***
+**Step 7: Crear el pull request**
+
+* Ve a tu repositorio forked en GitHub.
+* Cambia a la rama que acabas de crear.
+* Haz clic en el botón "New Pull Request".
+
+***
+**Step 8: Completar la Información del Pull Request**
+
+* Asegúrate de que la rama base (base branch) sea la rama correcta del repositorio original.
+* Asegúrate de que la rama de comparación (compare branch) sea tu rama con los cambios.
+* Proporciona un título y una descripción descriptiva para explicar tus cambios.
+
+***
+**Step 9: Crear el Pull Request**
+
+* Haz clic en el botón "Create Pull Request".
+* Añade comentarios adicionales si es necesario.
+
+***
+**Step 10: Espera la revisión y fusión**
+
+Los propietarios del repositorio original revisarán tus cambios. Puede haber comentarios, preguntas o solicitudes de ajustes. Una vez que tus cambios sean aceptados y fusionados, tu Pull Request estará cerrado.
+
+</details>
 </details>

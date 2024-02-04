@@ -97,11 +97,13 @@ Notas: La convención utilizada para nombrar una variable que contiene un DataFr
 <details>
 <summary>Manejo de datos duplicados</summary>
 
-| Sintaxi                     | Parametros (keep='')                    | Uso                                                          |
-| --------------------------- | --------------------------------------- | ------------------------------------------------------------ |
-| df.duplicated()             |                                         | Detecta filas duplicadas en todo el DataFrame                |
-| df.drop_duplicate()         | keep='first', keep='last', kepp='False' | Elimina duplicados en todo el DataFrame                      |
-| df['Ciudad'].value_counts() | normalice=True, sort=True               | Proporciona un recuento de la frecuencia de cada valor único |
+| Sintaxi                     | Parametros (keep='')                   | Uso                                                          |
+| --------------------------- | -------------------------------------- | ------------------------------------------------------------ |
+| df.duplicated()             |                                        | Detecta filas duplicadas en todo el DataFrame                |
+| df[df.duplicated()]         | keep='first', keep='last', kepp=False  | Mostar los registros duplicados                              |
+| df.duplicated()             | subset=['Nombre', 'Curso'], keep=False | Con los parametros muestra todos los duplicados              |
+| df.drop_duplicates()        | keep='first', keep='last', kepp=False  | Elimina duplicados en todo el DataFrame                      |
+| df['Ciudad'].value_counts() | normalice=True, sort=True              | Proporciona un recuento de la frecuencia de cada valor único |
 
 </details>
 
@@ -129,6 +131,13 @@ Notas: La convención utilizada para nombrar una variable que contiene un DataFr
 | df.groupby(['Ciudad', 'Edad']).sum()              | Agrupa por 'Ciudad' , 'Edad'  y suma los valores de las demas columnas  |
 | df.groupby('columna').agg({'otra_col':'funcion'}) | Agrega y aplica funciones a grupos de datos                             |
 
+```
+# Agrupracion | Calculo agrupado | Reseteo de indice | Cambio de nombre a columna
+
+    df_new = df.groupby('Curso')['Calificación'].mean().reset_index()
+    df_new = df_new.rename(columns={'Calificación': 'Calf_premd'})
+    print(df_new)
+```
 </details>
 
 <details>

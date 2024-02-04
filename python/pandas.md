@@ -47,44 +47,103 @@ Notas: La convención utilizada para nombrar una variable que contiene un DataFr
 </details>
 
 <details>
-<summary>Selección y filtrado</summary>
+<summary>Selección</summary>
 
-| Sintaxi                   | Uso                                                         |
-| ------------------------- | ----------------------------------------------------------- |
-| df['columna']             | Selecciona una columna especifica                           |
-| df[df['condición']]       | Filtra filas basadas en una condición                       |
-| df.loc[filas, columnas]   | Accede a un grupo específico de filas y columnas            |
-| df.iloc[filas, columnas]  | Accede a un grupo específico de filas y columnas por índice |
-| df[df['col'].isin(lista)] | Filtra filas donde la columna esta en una lista             |
+| Sintaxi                  | Uso                                                         |
+| ------------------------ | ----------------------------------------------------------- |
+| df['columna']            | Selecciona una columna especifica                           |
+| df.loc[filas, columnas]  | Accede a un grupo específico de filas y columnas            |
+| df.iloc[filas, columnas] | Accede a un grupo específico de filas y columnas por índice |
 
+</details>
+
+<details>
+<summary>Filtros</summary>
+
+| Sintaxi                             | Uso                                                                             |
+| ----------------------------------- | ------------------------------------------------------------------------------- |
+| df[(df['A'] > 5) & (df['B'] < 10)]  | Filtrado con multiples                                                          |
+| df[df['col'].isin(lista)]           | .isin() Filtra filas donde la columna esta en una lista                         |
+| df[df['col'].between(20, 40)]       | .between() Filtra filas con valores entre 20 y 40                               |
+| df[df['col'].str.startswith('Man')] | .str.startswith() Filtra filas donde las cadenas inicien con 'Man'              |
+| df[df['col'].str.endswith('na')]    | .str.endswith() Filtra filas donde las cadenas terminan en 'na'                 |
+| df[df['col'].str.contains('n')]     | .str.contains() Filtra filas donde las cadenas contenga la letra 'n'            |
+| df[df["col"].apply(mi_funcion)]     | .apply(mi_funcion) el mentodo permite pasar una funcion personalizada de filtro |
+</details>
+
+<details>
+<summary>Filtros - Consultas SQL</summary>
+
+| Sintaxi                                                      | Uso                                                  |
+| ------------------------------------------------------------ | ---------------------------------------------------- |
+| df.query('col < 50')                                         | Filtra el DataFrame usando una expresión de consulta |
+| df.query('col1 == "Producto A" and col2.str.contains("du")') | Filtro con multiples condiciones                     |
+| df.query('Ciudad == @ciudad_buscada')                        | Filtro con uso de varible @cuiudad_buscada           |
 </details>
 
 <details>
 <summary>Manipulación de DataFrame</summary>
 
-| Sintaxi                                           | Uso                                                 |
-| ------------------------------------------------- | --------------------------------------------------- |
-| df['nueva_col'] = df['col1'] + df['col2']         | Crea una nueva columna calculada                    |
-| df.append(df2, ignore_index=True)                 | Añade filas de otro DataFrame                       |
-| df.drop('columna', axis=1)                        | Elimina una columna                                 |
-| df.drop(index=filas)                              | Elimina filas por índice                            |
-| df.drop_duplicate()                               | Elimina duplicados en el DataFrame                  |
-| df.dropna()                                       | Elimina filas con valores nulos                     |
-| df.fillna(valor)                                  | Rellena los valores nulos con un valor especificado |
-| df.sort_values('columna')                         | Ordena el DataFrame por una columna específica      |
-| df.groupby('columna').agg({'otra_col':'funcion'}) | Agrega y aplica funciones a grupos de datos         |
+| Sintaxi                                   | Uso                                            |
+| ----------------------------------------- | ---------------------------------------------- |
+| df['nueva_col'] = df['col1'] + df['col2'] | Crea una nueva columna calculada               |
+| df.append(df2, ignore_index=True)         | Añade filas de otro DataFrame                  |
+| df.drop('columna', axis=1)                | Elimina una columna                            |
+| df.drop(index=filas)                      | Elimina filas por índice                       |
+| df.sort_values('columna')                 | Ordena el DataFrame por una columna específica |
+
+</details>
+
+<details>
+<summary>Manejo de datos duplicados</summary>
+
+| Sintaxi                     | Parametros (keep='')                    | Uso                                                          |
+| --------------------------- | --------------------------------------- | ------------------------------------------------------------ |
+| df.duplicated()             |                                         | Detecta filas duplicadas en todo el DataFrame                |
+| df.drop_duplicate()         | keep='first', keep='last', kepp='False' | Elimina duplicados en todo el DataFrame                      |
+| df['Ciudad'].value_counts() | normalice=True, sort=True               | Proporciona un recuento de la frecuencia de cada valor único |
+
+</details>
+
+<details>
+<summary>Tratamiento de valores faltantes y nulos</summary>
+
+| Sintaxi                   | Uso                                                                  |
+| ------------------------- | -------------------------------------------------------------------- |
+| df.isna()                 | Detectar valores faltantes en todo el DataFrame                      |
+| df['B'].isnull()          | Detectar valores faltantes en una columna específica                 |
+| df.fillna(method='bfill') | Rellena valores faltante con el valor anterior                       |
+| df.fillna(method='ffill') | Rellena valores faltantes con el valor siguiente                     |
+| df.fillna(valor)          | Rellena los valores nulos con un valor especificado                  |
+| df.dropna()               | Elimina todas las filas que contiene un valor faltante               |
+| df.dropna(axis=1)         | Eliminar todas las columnas que contienen al menos un valor faltante |
+
+</details>
+
+<details>
+<summary>Agrupaciones - Creacion de tablas y tablas dinamicas</summary>
+
+| Sintaxi                                           | Uso                                                                     |
+| ------------------------------------------------- | ----------------------------------------------------------------------- |
+| df.groupby('Ciudad').sum()                        | Agrupa por la columna 'Ciudad' y suma los valores de las demas columnas |
+| df.groupby(['Ciudad', 'Edad']).sum()              | Agrupa por 'Ciudad' , 'Edad'  y suma los valores de las demas columnas  |
+| df.groupby('columna').agg({'otra_col':'funcion'}) | Agrega y aplica funciones a grupos de datos                             |
 
 </details>
 
 <details>
 <summary>Operaciones aritmeticas</summary>
 
-| Sintaxi           | Uso                                            |
-| ----------------- | ---------------------------------------------- |
-| df.mean()         | Calcula la media de cada columna               |
-| df.sum()          | Calcula la suma de cada columna                |
-| df.std()          | Calcula la desviación estandar de cada columna |
-| df.isnull().sum() | Cuenta los valores nulos en cada columna       |
+| Sintaxi                | Uso                                                                                  |
+| ---------------------- | ------------------------------------------------------------------------------------ |
+| df.sum()               | Suma de todas la columans del DataFrame, si la columna contiene string los concatena |
+| df['col'].count()      | Cuenta el numero de valores no nulos en una columna                                  |
+| df['col'].std()        | Calcula la desviación estandar de cada columna                                       |
+| df['col'].mean()       | Calcula la media de los valores de la columna                                        |
+| df['col'].median()     | Calcula la mediana de los valores de columna                                         |
+| df['Edad'].min()       | Optiene el valor minimo de una columna                                               |
+| df['Puntuación'].max() | Optiene el valor maximo de una columna                                               |
+| df.isnull().sum()      | Cuenta los valores nulos en cada columna                                             |
 
 </details>
 
@@ -143,29 +202,30 @@ Notas: La convención utilizada para nombrar una variable que contiene un DataFr
 <details>
 <summary>Mergin, concatenación y uniones</summary>
 
-| Sintaxi                                         | Uso                                         |
-| ----------------------------------------------- | ------------------------------------------- |
-| pd.concat([df1, df2], axis=0)                   | Concatena DataFrames verticalmente          |
-| pd.merge(df1, df2, on='clave')                  | Realiza una fusión (merge) de los DataFrame |
-| df['nueva_col'] = df['col1'] + ' ' + df['col2'] | Combina dos columnas de texto               |
+| Sintaxi                                         | Uso                                                                  |
+| ----------------------------------------------- | -------------------------------------------------------------------- |
+| pd.concat([df1, df2], axis=0)                   | Concatena DataFrames por eje [axis=0: Vertical] [axis=1: Horizontal] |
+| pd.merge(df1, df2, on='columna_comun')          | Realiza una fusión (merge) de los DataFrame                          |
+| df['nueva_col'] = df['col1'] + ' ' + df['col2'] | Combina dos columnas de texto                                        |
 
 </details>
 
 <details>
-<summary>Filtros avanzados</summary>
-
-| Sintaxi               | Uso                                                  |
-| --------------------- | ---------------------------------------------------- |
-| df.query('condicion') | Filtra el DataFrame usando una expresión de consulta |
-
-</details>
-
-<details>
-<summary>Operaciones .apply(lambda)</summary>
+<summary>Operaciones con el metodo .apply()</summary>
 
 | Sintaxi                   | Uso                                              |
 | ------------------------- | ------------------------------------------------ |
 | df.apply(lambda x: x * 2) | Aplica una función a cada elemento del DataFrame |
+| df.['col1'].apply(sum)    | Aplica la funcion suma a la 'col1'               |
+
+</details>
+
+<details>
+<summary>Operaciones con el metodo .map()</summary>
+
+| Sintaxi                   | Uso                                                            |
+| ------------------------- | -------------------------------------------------------------- |
+| df['Categoria'].map(dic1) | Mapea los valores del diccionario dic1 en su clave 'Categoria' |
 
 </details>
 

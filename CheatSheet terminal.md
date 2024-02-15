@@ -1,4 +1,17 @@
 # COMANDOS DE USO EN TERMINAL
+<details>
+<summary>Python</summary>
+
+> Shell para trabajar con codigo de python
+
+| File/Comando | Descripción                                            | Entrornos de ejecución                                         |
+| ------------ | ------------------------------------------------------ | -------------------------------------------------------------- |
+| file.py      | Archivos ejecutables de Python                         | Terminal: python file.py - VSCode Run Code                     |
+| file.ipynb   | Archivos ejecutables de Jupyter Notebook               | Cuenta con su propio entorno de ejecución del codigo           |
+| python       | Inicialización del interprete de python en la terminal | Se puede escribir y ejecutar codigo python en la terminal      |
+| ipython      | Al igual que python inicial en terminal un interprete  | El inteprete inicializado cuenta con caracteristicas mejoradas |
+
+</details>
 
 <details>
 <summary>PowerShell</summary>

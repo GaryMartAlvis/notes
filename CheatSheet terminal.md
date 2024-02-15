@@ -32,34 +32,33 @@
 
 > Python Package Index - PyPI: Sistema de gestion de paquetes de python
 
-| Comando                                | Uso                                               |
-| -------------------------------------- | ------------------------------------------------- |
-| pip install <nombre_del_paquete>       | Instalar un paquete                               |
-| pip uninstall <nombre_del_paquete>     | Desinstalar un paquete                            |
-| pip show <nombre_del_paquete>          | Mostrar información sobre un paquete instalado    |
-| pip list                               | Listar todos los paquetes instalados              |
-| pip install --upgrade <nombre_paquete> | Actualizar un paquete a la última versión         |
-| pip search <término_de_búsqueda>       | Buscar paquetes                                   |
-| pip freeze > requirements.txt          | Crear un archivo de requisitos (requirements.txt) |
-| pip install -r requirements.txt        | Instalar paquetes desde un archivo de requisitos  |
-| pip show -f <nombre_del_paquete>       | Mostrar la ubicación de un paquete instalado      |
-| pip list --outdated                    | Listar los paquetes obsoletos                     |
+| Comando                                                             | Uso                                               |
+| ------------------------------------------------------------------- | ------------------------------------------------- |
+| pip install <nombre_del_paquete>                                    | Instalar un paquete                               |
+| pip uninstall <nombre_del_paquete>                                  | Desinstalar un paquete                            |
+| pip show <nombre_del_paquete>                                       | Mostrar información sobre un paquete instalado    |
+| pip list                                                            | Listar todos los paquetes instalados              |
+| pip install --upgrade <nombre_paquete>                              | Actualizar un paquete a la última versión         |
+| pip search <término_de_búsqueda>                                    | Buscar paquetes                                   |
+| pip freeze > requirements.txt                                       | Crear un archivo de requisitos (requirements.txt) |
+| pip install -r requirements.txt                                     | Instalar paquetes desde un archivo de requisitos  |
+| pip show -f <nombre_del_paquete>                                    | Mostrar la ubicación de un paquete instalado      |
+| pip list --outdated                                                 | Listar los paquetes obsoletos                     |
+| pip freeze \| ForEach-Object { pip uninstall -y $_.split('==')[0] } | Desinstalar todas las librerias listadas en pip   |
 
 </details>
 
 
 <details>
-<summary>Python</summary>
+<summary>Virtual Environments</summary>
 
-> Ejecucion de archivos '.py' & Entornos virtuales con Python
+> Entornos virtuales
 
-| Comando                                     | Uso                                   |
-| ------------------------------------------- | ------------------------------------- |
-| python <nombre_script.py>                   | Ejecuta un script de python           |
-| virtualenv <nombre_del_entorno>             | OP1 Crear un entorno virtual          |
-| python -m venv <nombre_del_entorno_virtual> | OP2 Crear un entorno virtual          |
-| .\<nombre_entorno_virtual>\Scripts\activate | Activar un entorno virtual en Windows |
-| deactivate                                  | Desactivar un entorno virtual         |
+| Comando                          | Uso                                   |
+| -------------------------------- | ------------------------------------- |
+| python -m venv <nombre_venv>     | Crear un entorno virtual              |
+| .\<nombre_venv>\Scripts\activate | Activar un entorno virtual en Windows |
+| deactivate                       | Desactivar un entorno virtual         |
 
 </details>
 

@@ -4,7 +4,7 @@
 
 > Shell para trabajar con codigo de python
 
-| File/Comando | Descripción                                            | Entrornos de ejecución                                         |
+| File/Comando | Descripción                                            | Entornos de ejecución                                         |
 | ------------ | ------------------------------------------------------ | -------------------------------------------------------------- |
 | file.py      | Archivos ejecutables de Python                         | Terminal: python file.py - VSCode Run Code                     |
 | file.ipynb   | Archivos ejecutables de Jupyter Notebook               | Cuenta con su propio entorno de ejecución del codigo           |
@@ -97,7 +97,19 @@
 | git reset --hard                           | Deshace cambios locales                                                                    |
 | git tag -a <nombre_etiq> -m "Mensaje Etiq" | Crea, lista o borra etiquetas                                                              |
 
+<details>
+<summary>Pushear archivos locales a un repositorio nuevo</summary>
 
+```
+# Carpeta local del proyecto
+git init
+git add .
+git commit -m 'Repository initialization'
+git branch -M main
+git remote add origin <url_repository_github>
+git push -u origin main
+```
+</details>
 
 <details>
 <summary>Creación y conexión de repositorio con GitHub</summary>
